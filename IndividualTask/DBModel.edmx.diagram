@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13ee93cd42ee4c6f98b3dce45ba64989" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="DekretDBModel.Contact" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekretDBModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DekretDBModel.UserType" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="DekretDBModel.FK_User_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="DekretDBModel.FK_User_UserType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DekretDBModel.City" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DekretDBModel.Account" Width="1.5" PointX="3.25" PointY="9.125" />
+        <EntityTypeShape EntityType="DekretDBModel.Invoice" Width="1.5" PointX="6.25" PointY="4" />
+        <EntityTypeShape EntityType="DekretDBModel.InvoicePayment" Width="1.5" PointX="8.5" PointY="3" />
+        <EntityTypeShape EntityType="DekretDBModel.InvoiceProduct" Width="1.5" PointX="8.5" PointY="6.375" />
+        <EntityTypeShape EntityType="DekretDBModel.Job" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="DekretDBModel.Product" Width="1.5" PointX="6.25" PointY="8.625" />
+        <AssociationConnector Association="DekretDBModel.FK_Account_Contact" ManuallyRouted="true" >
+          <ConnectorPoint PointX="2.25" PointY="3.1520885712596964" />
+          <ConnectorPoint PointX="2.4745921342660968" PointY="3.8536378611551831" />
+          <ConnectorPoint PointX="2.5254078657339036" PointY="4.0123688890393669" />
+          <ConnectorPoint PointX="3" PointY="5.4948329827724347" />
+          <ConnectorPoint PointX="3.25" PointY="10.406946945643295" />
+        </AssociationConnector>
+        <AssociationConnector Association="DekretDBModel.FK_Contact_Account" />
+        <AssociationConnector Association="DekretDBModel.FK_Invoice_Account" />
+        <AssociationConnector Association="DekretDBModel.FK_Contact_City" />
+        <AssociationConnector Association="DekretDBModel.FK_Contact_Job" />
+        <AssociationConnector Association="DekretDBModel.FK_Invoice_Contact" />
+        <AssociationConnector Association="DekretDBModel.FK_InvoicePayment_Contact" />
+        <AssociationConnector Association="DekretDBModel.FK_InvoicePayment_Invoice" />
+        <AssociationConnector Association="DekretDBModel.FK_InvoiceProduct_Invoice" />
+        <AssociationConnector Association="DekretDBModel.FK_InvoiceProduct_Product" />
+        <EntityTypeShape EntityType="DekretDBModel.InvoiceStatus" Width="1.5" PointX="8.375" PointY="10.875" />
+        <AssociationConnector Association="DekretDBModel.FK_Invoice_ContactOwner" />
+        <AssociationConnector Association="DekretDBModel.FK_Invoice_InvoiceStatus" />
+        <EntityTypeShape EntityType="DekretDBModel.SysLookup" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
