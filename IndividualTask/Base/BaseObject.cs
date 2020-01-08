@@ -11,5 +11,6 @@ namespace IndividualTask.Base
         public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime? CreatedOn { get; set; } = DateTime.Now;
         public DateTime? ModifiedOn { get; set; } = DateTime.Now;
+        private DateTime Test;
     }
 }
