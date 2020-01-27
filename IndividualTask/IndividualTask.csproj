@@ -73,7 +73,27 @@
     <Compile Include="Account.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccountExtension.cs" />
+    <Compile Include="AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactForm.Designer.cs">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewCustomRow.cs" />
+    <Compile Include="DataGridViewHelper\TableHelper.cs" />
+    <Compile Include="Extentions\Account.cs" />
     <Compile Include="Base\BaseLookup.cs" />
     <Compile Include="Base\BaseObject.cs" />
     <Compile Include="AuthorizeForm.cs">
@@ -90,10 +110,24 @@
     </Compile>
     <Compile Include="DataGridViewHelper\ColumnHelper.cs" />
     <Compile Include="DataGridViewHelper\OperationHelper.cs" />
-    <Compile Include="DataGridViewReflection.cs" />
+    <Compile Include="Extentions\City.cs" />
+    <Compile Include="Extentions\Contact.cs" />
+    <Compile Include="Extentions\Invoice.cs" />
+    <Compile Include="Extentions\Job.cs" />
+    <Compile Include="Extentions\Product.cs" />
+    <Compile Include="Extentions\SysLookup.cs" />
+    <Compile Include="Extentions\User.cs" />
+    <Compile Include="Extentions\UserType.cs" />
+    <Compile Include="IDataGridViewReflection.cs" />
     <Compile Include="IDataBaseAction.cs" />
     <Compile Include="Invoice.cs">
       <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceForm.Designer.cs">
+      <DependentUpon>InvoiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InvoicePayment.cs">
       <DependentUpon>Models.tt</DependentUpon>
@@ -104,8 +138,16 @@
     <Compile Include="InvoiceStatus.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extentions\InvoiceStatus.cs" />
     <Compile Include="Job.cs">
       <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lookup.cs" />
+    <Compile Include="ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -154,11 +196,26 @@
     <Compile Include="UserType.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AuthorizeForm.resx">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContactForm.resx">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceForm.resx">
+      <DependentUpon>InvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -200,6 +257,12 @@
       <LastGenOutput>Models.cs</LastGenOutput>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\iconfinder_Yes_132693.png" />
+    <None Include="Resources\iconfinder_Notes_132689.png" />
+    <None Include="Resources\iconfinder_Sync_132655.png" />
+    <None Include="Resources\iconfinder_Create_132699.png" />
+    <None Include="Resources\iconfinder_Delete_1327461.png" />
+    <None Include="Resources\iconfinder_Delete_131713.png" />
     <None Include="Resources\background2.jpg" />
     <None Include="Resources\background.jpg" />
     <None Include="Resources\iconfinder_Tune_132605.png" />

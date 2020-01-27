@@ -24,14 +24,14 @@ namespace IndividualTask
             this.InvoiceOwner = new HashSet<Invoice>();
         }
     
-        public System.Guid Id { get; set; }
-        public Nullable<System.DateTime> CreatedOn { get; set; }
-        public Nullable<System.DateTime> ModifiedOn { get; set; }
+        //public System.Guid Id { get; set; }
+        //public Nullable<System.DateTime> CreatedOn { get; set; }
+        //public Nullable<System.DateTime> ModifiedOn { get; set; }
         public Nullable<System.Guid> AccountId { get; set; }
         public Nullable<System.Guid> CityId { get; set; }
         public Nullable<System.Guid> JobId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        //public string Name { get; set; }
+        //public string Description { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
     

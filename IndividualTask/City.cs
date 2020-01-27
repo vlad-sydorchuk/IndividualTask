@@ -11,21 +11,14 @@ namespace IndividualTask
 {
     using System;
     using System.Collections.Generic;
-    using Base;
     
-    public partial class City : BaseLookup
+    public partial class City
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public City()
         {
             this.Contact = new HashSet<Contact>();
         }
-    
-        //public System.Guid Id { get; set; }
-        //public Nullable<System.DateTime> CreatedOn { get; set; }
-        //public Nullable<System.DateTime> ModifiedOn { get; set; }
-        //public string Name { get; set; }
-        //public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contact> Contact { get; set; }

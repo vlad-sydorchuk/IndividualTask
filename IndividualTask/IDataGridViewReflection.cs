@@ -8,6 +8,7 @@ namespace IndividualTask
 {
     public interface IDataGridViewReflection
     {
-        IEnumerable<string> GetCustomData();
+        DataGridViewCustomRow GetCustomData();
+        //IEnumerable<Base.BaseLookup> GetCustomData();
     }
 }

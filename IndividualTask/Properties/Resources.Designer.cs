@@ -103,9 +103,39 @@ namespace IndividualTask.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Create_132699 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Create_132699", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Delete_131713 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Delete_131713", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_Delete_132746 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_Delete_132746", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Delete_1327461 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Delete_1327461", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +163,16 @@ namespace IndividualTask.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Notes_132689 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Notes_132689", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_Person_132730 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_Person_132730", resourceCulture);
@@ -153,6 +193,16 @@ namespace IndividualTask.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Sync_132655 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Sync_132655", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_Toolbox_132722 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_Toolbox_132722", resourceCulture);
@@ -166,6 +216,16 @@ namespace IndividualTask.Properties {
         internal static System.Drawing.Bitmap iconfinder_Tune_132605 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_Tune_132605", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Yes_132693 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Yes_132693", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

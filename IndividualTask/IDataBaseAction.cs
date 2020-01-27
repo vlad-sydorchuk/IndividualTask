@@ -9,8 +9,8 @@ namespace IndividualTask
 {
     public interface IDataBaseAction
     {
-        void Add();
-        //void Update();
-        //void Delete();
+        void Add(DataGridViewCustomRow o);
+        void Update(DataGridViewCustomRow o);
+        void Delete(Guid id);
     }
 }

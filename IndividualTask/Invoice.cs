@@ -21,11 +21,6 @@ namespace IndividualTask
             this.InvoiceProduct = new HashSet<InvoiceProduct>();
         }
     
-        public System.Guid Id { get; set; }
-        public Nullable<System.DateTime> CreatedOn { get; set; }
-        public Nullable<System.DateTime> ModifiedOn { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
         public System.Guid AccountId { get; set; }
         public System.Guid ContactId { get; set; }
         public Nullable<decimal> Amount { get; set; }

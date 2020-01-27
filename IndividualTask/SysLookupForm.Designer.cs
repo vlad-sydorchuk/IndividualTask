@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvLookup = new System.Windows.Forms.DataGridView();
-            this.btnAddRecord = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedOnAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModifiedOnAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescriptionAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDeleteRecord = new System.Windows.Forms.Button();
             this.lblCreatedOn = new System.Windows.Forms.Label();
             this.dtCreatedOn = new System.Windows.Forms.DateTimePicker();
             this.lblModifiedOn = new System.Windows.Forms.Label();
@@ -44,6 +42,9 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.rtxtDescription = new System.Windows.Forms.RichTextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDeleteRecord = new System.Windows.Forms.Button();
+            this.btnAddRecord = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLookup)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,18 +64,9 @@
             this.dgvLookup.Name = "dgvLookup";
             this.dgvLookup.ReadOnly = true;
             this.dgvLookup.RowTemplate.Height = 24;
-            this.dgvLookup.Size = new System.Drawing.Size(525, 426);
+            this.dgvLookup.Size = new System.Drawing.Size(525, 374);
             this.dgvLookup.TabIndex = 0;
             this.dgvLookup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLookup_CellClick);
-            // 
-            // btnAddRecord
-            // 
-            this.btnAddRecord.Location = new System.Drawing.Point(12, 404);
-            this.btnAddRecord.Name = "btnAddRecord";
-            this.btnAddRecord.Size = new System.Drawing.Size(99, 34);
-            this.btnAddRecord.TabIndex = 1;
-            this.btnAddRecord.Text = "Добавить";
-            this.btnAddRecord.UseVisualStyleBackColor = true;
             // 
             // Id
             // 
@@ -116,15 +108,6 @@
             this.DescriptionAll.HeaderText = "Описание";
             this.DescriptionAll.Name = "DescriptionAll";
             this.DescriptionAll.ReadOnly = true;
-            // 
-            // btnDeleteRecord
-            // 
-            this.btnDeleteRecord.Location = new System.Drawing.Point(117, 404);
-            this.btnDeleteRecord.Name = "btnDeleteRecord";
-            this.btnDeleteRecord.Size = new System.Drawing.Size(99, 34);
-            this.btnDeleteRecord.TabIndex = 1;
-            this.btnDeleteRecord.Text = "Удалить";
-            this.btnDeleteRecord.UseVisualStyleBackColor = true;
             // 
             // lblCreatedOn
             // 
@@ -192,15 +175,48 @@
             // 
             this.rtxtDescription.Location = new System.Drawing.Point(15, 247);
             this.rtxtDescription.Name = "rtxtDescription";
-            this.rtxtDescription.Size = new System.Drawing.Size(239, 78);
+            this.rtxtDescription.Size = new System.Drawing.Size(239, 99);
             this.rtxtDescription.TabIndex = 6;
             this.rtxtDescription.Text = "";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.Image = global::IndividualTask.Properties.Resources.iconfinder_Sync_132655;
+            this.btnUpdate.Location = new System.Drawing.Point(157, 352);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(49, 34);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDeleteRecord
+            // 
+            this.btnDeleteRecord.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteRecord.Image = global::IndividualTask.Properties.Resources.iconfinder_Delete_1327461;
+            this.btnDeleteRecord.Location = new System.Drawing.Point(205, 352);
+            this.btnDeleteRecord.Name = "btnDeleteRecord";
+            this.btnDeleteRecord.Size = new System.Drawing.Size(49, 34);
+            this.btnDeleteRecord.TabIndex = 1;
+            this.btnDeleteRecord.UseVisualStyleBackColor = false;
+            this.btnDeleteRecord.Click += new System.EventHandler(this.btnDeleteRecord_Click);
+            // 
+            // btnAddRecord
+            // 
+            this.btnAddRecord.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddRecord.Image = global::IndividualTask.Properties.Resources.iconfinder_Create_132699;
+            this.btnAddRecord.Location = new System.Drawing.Point(109, 352);
+            this.btnAddRecord.Name = "btnAddRecord";
+            this.btnAddRecord.Size = new System.Drawing.Size(49, 34);
+            this.btnAddRecord.TabIndex = 1;
+            this.btnAddRecord.UseVisualStyleBackColor = false;
+            this.btnAddRecord.Click += new System.EventHandler(this.btnAddRecord_Click);
             // 
             // SysLookupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 395);
             this.Controls.Add(this.rtxtDescription);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblDescription);
@@ -209,6 +225,7 @@
             this.Controls.Add(this.lblModifiedOn);
             this.Controls.Add(this.dtCreatedOn);
             this.Controls.Add(this.lblCreatedOn);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDeleteRecord);
             this.Controls.Add(this.btnAddRecord);
             this.Controls.Add(this.dgvLookup);
@@ -239,5 +256,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.RichTextBox rtxtDescription;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

@@ -11,9 +11,8 @@ namespace IndividualTask
 {
     using System;
     using System.Collections.Generic;
-    using Base;
 
-    public partial class Account : BaseLookup, IDataGridViewReflection
+    public partial class Account
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
@@ -21,23 +20,6 @@ namespace IndividualTask
             this.Invoice = new HashSet<Invoice>();
         }
 
-
-        IEnumerable<string> IDataGridViewReflection.GetCustomData()
-        {
-            var array = new string[]
-            {
-                Id.ToString(),
-                Name
-            };
-
-            return array;
-        }
-
-        public System.Guid Id { get; set; }
-        public Nullable<System.DateTime> CreatedOn { get; set; }
-        public Nullable<System.DateTime> ModifiedOn { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
         public Nullable<System.Guid> PrimaryContactId { get; set; }
 
         public virtual Contact Contact { get; set; }

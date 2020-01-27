@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndividualTask.Base
+namespace IndividualTask
 {
     public abstract class BaseLookup : BaseObject
     {

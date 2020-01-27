@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.tsMenuContact = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuInvoice = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMenuLookup = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMenuAdministration = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuSysLookup = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuUser = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvSection = new System.Windows.Forms.DataGridView();
+            this.btnAddRecord = new System.Windows.Forms.Button();
+            this.btnEditRecord = new System.Windows.Forms.Button();
+            this.btcDeleteRecord = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedOnAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +51,12 @@
             this.EmailInContact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountInInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OwnerInInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PasswordInAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PasswordInUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusInInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactInAccountInInvoiceInAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactInAccountInInvoiceInUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DbNameInSysLookup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeInAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddRecord = new System.Windows.Forms.Button();
-            this.btnEditRecord = new System.Windows.Forms.Button();
-            this.btcDeleteRecord = new System.Windows.Forms.Button();
+            this.TypeInUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceInProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSection)).BeginInit();
             this.SuspendLayout();
@@ -73,14 +74,14 @@
             this.tsMenuAccount,
             this.tsMenuProduct,
             this.tsMenuInvoice,
-            this.tsMenuLookup,
-            this.tsMenuAdministration,
+            this.tsMenuSysLookup,
+            this.tsMenuUser,
             this.tsMenuExit});
             this.mainMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mainMenu.Size = new System.Drawing.Size(212, 453);
+            this.mainMenu.Size = new System.Drawing.Size(196, 453);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -91,7 +92,7 @@
             this.tsMenuContact.Margin = new System.Windows.Forms.Padding(0, 45, 0, 0);
             this.tsMenuContact.Name = "tsMenuContact";
             this.tsMenuContact.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tsMenuContact.Size = new System.Drawing.Size(115, 28);
+            this.tsMenuContact.Size = new System.Drawing.Size(99, 28);
             this.tsMenuContact.Text = "Контакты";
             this.tsMenuContact.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.tsMenuContact.Click += new System.EventHandler(this.tsMenuContact_Click);
@@ -101,7 +102,7 @@
             this.tsMenuAccount.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.tsMenuAccount.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsMenuAccount.Name = "tsMenuAccount";
-            this.tsMenuAccount.Size = new System.Drawing.Size(144, 28);
+            this.tsMenuAccount.Size = new System.Drawing.Size(128, 28);
             this.tsMenuAccount.Text = "Контрагенты";
             this.tsMenuAccount.Click += new System.EventHandler(this.tsMenuAccount_Click);
             // 
@@ -110,7 +111,7 @@
             this.tsMenuProduct.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.tsMenuProduct.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsMenuProduct.Name = "tsMenuProduct";
-            this.tsMenuProduct.Size = new System.Drawing.Size(120, 28);
+            this.tsMenuProduct.Size = new System.Drawing.Size(104, 28);
             this.tsMenuProduct.Text = "Продукты";
             this.tsMenuProduct.Click += new System.EventHandler(this.tsMenuProduct_Click);
             // 
@@ -119,34 +120,34 @@
             this.tsMenuInvoice.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.tsMenuInvoice.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsMenuInvoice.Name = "tsMenuInvoice";
-            this.tsMenuInvoice.Size = new System.Drawing.Size(84, 28);
+            this.tsMenuInvoice.Size = new System.Drawing.Size(68, 28);
             this.tsMenuInvoice.Text = "Счета";
             this.tsMenuInvoice.Click += new System.EventHandler(this.tsMenuInvoice_Click);
             // 
-            // tsMenuLookup
+            // tsMenuSysLookup
             // 
-            this.tsMenuLookup.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.tsMenuLookup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsMenuLookup.Name = "tsMenuLookup";
-            this.tsMenuLookup.Size = new System.Drawing.Size(145, 28);
-            this.tsMenuLookup.Text = "Справочники";
-            this.tsMenuLookup.Click += new System.EventHandler(this.tsMenuLookup_Click);
+            this.tsMenuSysLookup.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.tsMenuSysLookup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsMenuSysLookup.Name = "tsMenuSysLookup";
+            this.tsMenuSysLookup.Size = new System.Drawing.Size(129, 28);
+            this.tsMenuSysLookup.Text = "Справочники";
+            this.tsMenuSysLookup.Click += new System.EventHandler(this.tsMenuSysLookup_Click);
             // 
-            // tsMenuAdministration
+            // tsMenuUser
             // 
-            this.tsMenuAdministration.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.tsMenuAdministration.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsMenuAdministration.Name = "tsMenuAdministration";
-            this.tsMenuAdministration.Size = new System.Drawing.Size(209, 28);
-            this.tsMenuAdministration.Text = "Администрирование";
-            this.tsMenuAdministration.Click += new System.EventHandler(this.tsMenuAdministration_Click);
+            this.tsMenuUser.Font = new System.Drawing.Font("Comic Sans MS", 10F);
+            this.tsMenuUser.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsMenuUser.Name = "tsMenuUser";
+            this.tsMenuUser.Size = new System.Drawing.Size(193, 28);
+            this.tsMenuUser.Text = "Администрирование";
+            this.tsMenuUser.Click += new System.EventHandler(this.tsMenuUser_Click);
             // 
             // tsMenuExit
             // 
             this.tsMenuExit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsMenuExit.Margin = new System.Windows.Forms.Padding(0, 150, 0, 0);
             this.tsMenuExit.Name = "tsMenuExit";
-            this.tsMenuExit.Size = new System.Drawing.Size(85, 24);
+            this.tsMenuExit.Size = new System.Drawing.Size(69, 24);
             this.tsMenuExit.Text = "Выйти";
             this.tsMenuExit.Click += new System.EventHandler(this.tsMenuExit_Click);
             // 
@@ -168,11 +169,12 @@
             this.EmailInContact,
             this.AmountInInvoice,
             this.OwnerInInvoice,
-            this.PasswordInAdmin,
+            this.PasswordInUser,
             this.StatusInInvoice,
-            this.ContactInAccountInInvoiceInAdmin,
+            this.ContactInAccountInInvoiceInUser,
             this.DbNameInSysLookup,
-            this.TypeInAdmin});
+            this.TypeInUser,
+            this.PriceInProduct});
             this.dgvSection.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvSection.Location = new System.Drawing.Point(240, 57);
             this.dgvSection.Name = "dgvSection";
@@ -180,7 +182,38 @@
             this.dgvSection.RowTemplate.Height = 24;
             this.dgvSection.Size = new System.Drawing.Size(680, 381);
             this.dgvSection.TabIndex = 1;
+            this.dgvSection.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSection_CellClick);
             this.dgvSection.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSection_CellMouseDoubleClick);
+            // 
+            // btnAddRecord
+            // 
+            this.btnAddRecord.Location = new System.Drawing.Point(240, 12);
+            this.btnAddRecord.Name = "btnAddRecord";
+            this.btnAddRecord.Size = new System.Drawing.Size(97, 34);
+            this.btnAddRecord.TabIndex = 2;
+            this.btnAddRecord.Text = "Добавить";
+            this.btnAddRecord.UseVisualStyleBackColor = true;
+            this.btnAddRecord.Click += new System.EventHandler(this.btnAddRecord_Click);
+            // 
+            // btnEditRecord
+            // 
+            this.btnEditRecord.Location = new System.Drawing.Point(343, 12);
+            this.btnEditRecord.Name = "btnEditRecord";
+            this.btnEditRecord.Size = new System.Drawing.Size(97, 34);
+            this.btnEditRecord.TabIndex = 2;
+            this.btnEditRecord.Text = "Изменить";
+            this.btnEditRecord.UseVisualStyleBackColor = true;
+            this.btnEditRecord.Click += new System.EventHandler(this.btnEditRecord_Click);
+            // 
+            // btcDeleteRecord
+            // 
+            this.btcDeleteRecord.Location = new System.Drawing.Point(446, 12);
+            this.btcDeleteRecord.Name = "btcDeleteRecord";
+            this.btcDeleteRecord.Size = new System.Drawing.Size(97, 34);
+            this.btcDeleteRecord.TabIndex = 2;
+            this.btcDeleteRecord.Text = "Удалить";
+            this.btcDeleteRecord.UseVisualStyleBackColor = true;
+            this.btcDeleteRecord.Click += new System.EventHandler(this.btcDeleteRecord_Click);
             // 
             // Id
             // 
@@ -195,8 +228,8 @@
             // 
             this.CreatedOnAll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CreatedOnAll.DataPropertyName = "CreatedOn";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CreatedOnAll.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CreatedOnAll.DefaultCellStyle = dataGridViewCellStyle1;
             this.CreatedOnAll.HeaderText = "Дата создания";
             this.CreatedOnAll.Name = "CreatedOnAll";
             this.CreatedOnAll.ReadOnly = true;
@@ -265,13 +298,13 @@
             this.OwnerInInvoice.Name = "OwnerInInvoice";
             this.OwnerInInvoice.ReadOnly = true;
             // 
-            // PasswordInAdmin
+            // PasswordInUser
             // 
-            this.PasswordInAdmin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PasswordInAdmin.DataPropertyName = "Password";
-            this.PasswordInAdmin.HeaderText = "Пароль";
-            this.PasswordInAdmin.Name = "PasswordInAdmin";
-            this.PasswordInAdmin.ReadOnly = true;
+            this.PasswordInUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PasswordInUser.DataPropertyName = "Password";
+            this.PasswordInUser.HeaderText = "Пароль";
+            this.PasswordInUser.Name = "PasswordInUser";
+            this.PasswordInUser.ReadOnly = true;
             // 
             // StatusInInvoice
             // 
@@ -281,13 +314,13 @@
             this.StatusInInvoice.Name = "StatusInInvoice";
             this.StatusInInvoice.ReadOnly = true;
             // 
-            // ContactInAccountInInvoiceInAdmin
+            // ContactInAccountInInvoiceInUser
             // 
-            this.ContactInAccountInInvoiceInAdmin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ContactInAccountInInvoiceInAdmin.DataPropertyName = "Contact";
-            this.ContactInAccountInInvoiceInAdmin.HeaderText = "Контакт";
-            this.ContactInAccountInInvoiceInAdmin.Name = "ContactInAccountInInvoiceInAdmin";
-            this.ContactInAccountInInvoiceInAdmin.ReadOnly = true;
+            this.ContactInAccountInInvoiceInUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ContactInAccountInInvoiceInUser.DataPropertyName = "Contact";
+            this.ContactInAccountInInvoiceInUser.HeaderText = "Контакт";
+            this.ContactInAccountInInvoiceInUser.Name = "ContactInAccountInInvoiceInUser";
+            this.ContactInAccountInInvoiceInUser.ReadOnly = true;
             // 
             // DbNameInSysLookup
             // 
@@ -297,40 +330,21 @@
             this.DbNameInSysLookup.Name = "DbNameInSysLookup";
             this.DbNameInSysLookup.ReadOnly = true;
             // 
-            // TypeInAdmin
+            // TypeInUser
             // 
-            this.TypeInAdmin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TypeInAdmin.DataPropertyName = "Type";
-            this.TypeInAdmin.HeaderText = "Тип";
-            this.TypeInAdmin.Name = "TypeInAdmin";
-            this.TypeInAdmin.ReadOnly = true;
+            this.TypeInUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeInUser.DataPropertyName = "Type";
+            this.TypeInUser.HeaderText = "Тип";
+            this.TypeInUser.Name = "TypeInUser";
+            this.TypeInUser.ReadOnly = true;
             // 
-            // btnAddRecord
+            // PriceInProduct
             // 
-            this.btnAddRecord.Location = new System.Drawing.Point(240, 12);
-            this.btnAddRecord.Name = "btnAddRecord";
-            this.btnAddRecord.Size = new System.Drawing.Size(97, 34);
-            this.btnAddRecord.TabIndex = 2;
-            this.btnAddRecord.Text = "Добавить";
-            this.btnAddRecord.UseVisualStyleBackColor = true;
-            // 
-            // btnEditRecord
-            // 
-            this.btnEditRecord.Location = new System.Drawing.Point(343, 12);
-            this.btnEditRecord.Name = "btnEditRecord";
-            this.btnEditRecord.Size = new System.Drawing.Size(97, 34);
-            this.btnEditRecord.TabIndex = 2;
-            this.btnEditRecord.Text = "Изменить";
-            this.btnEditRecord.UseVisualStyleBackColor = true;
-            // 
-            // btcDeleteRecord
-            // 
-            this.btcDeleteRecord.Location = new System.Drawing.Point(446, 12);
-            this.btcDeleteRecord.Name = "btcDeleteRecord";
-            this.btcDeleteRecord.Size = new System.Drawing.Size(97, 34);
-            this.btcDeleteRecord.TabIndex = 2;
-            this.btcDeleteRecord.Text = "Удалить";
-            this.btcDeleteRecord.UseVisualStyleBackColor = true;
+            this.PriceInProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PriceInProduct.DataPropertyName = "Price";
+            this.PriceInProduct.HeaderText = "Цена";
+            this.PriceInProduct.Name = "PriceInProduct";
+            this.PriceInProduct.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -365,8 +379,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsMenuInvoice;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.DataGridView dgvSection;
-        private System.Windows.Forms.ToolStripMenuItem tsMenuLookup;
-        private System.Windows.Forms.ToolStripMenuItem tsMenuAdministration;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuSysLookup;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuUser;
         private System.Windows.Forms.ToolStripMenuItem tsMenuExit;
         private System.Windows.Forms.Button btnAddRecord;
         private System.Windows.Forms.Button btnEditRecord;
@@ -381,10 +395,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailInContact;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountInInvoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn OwnerInInvoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PasswordInAdmin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PasswordInUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusInInvoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactInAccountInInvoiceInAdmin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactInAccountInInvoiceInUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn DbNameInSysLookup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeInAdmin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeInUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceInProduct;
     }
 }

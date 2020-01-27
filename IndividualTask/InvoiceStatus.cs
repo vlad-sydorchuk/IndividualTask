@@ -12,7 +12,7 @@ namespace IndividualTask
     using System;
     using System.Collections.Generic;
     
-    public partial class InvoiceStatus : IDataGridViewReflection
+    public partial class InvoiceStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public InvoiceStatus()
@@ -20,24 +20,7 @@ namespace IndividualTask
             this.Invoice = new HashSet<Invoice>();
         }
     
-        public System.Guid Id { get; set; }
-        public Nullable<System.DateTime> CreatedOn { get; set; }
-        public Nullable<System.DateTime> ModifiedOn { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoice { get; set; }
-
-        IEnumerable<string> IDataGridViewReflection.GetCustomData()
-        {
-            var array = new string[]
-            {
-                Id.ToString(),
-                Name
-            };
-
-            return array;
-        }
     }
 }

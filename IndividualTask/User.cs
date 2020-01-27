@@ -14,9 +14,6 @@ namespace IndividualTask
     
     public partial class User
     {
-        public System.Guid Id { get; set; }
-        public Nullable<System.DateTime> CreatedOn { get; set; }
-        public Nullable<System.DateTime> ModifiedOn { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public Nullable<System.Guid> ContactId { get; set; }

@@ -16,13 +16,39 @@ namespace IndividualTask
     {
         Form Form { get; set; }
         User User { get; set; }
+
         object CurrentMenuItem { get; set; }
+        string PrefMenuItem { get; set; } = "tsMenu";
+        int CurrentRowIndex { get; set; } = 0;
+
+        Dictionary<string, Func<Form, User, string, Form>> Forms { get; set; }
+        Dictionary<string, Action<string>> DeleteMethods { get; set; }
 
         public MainForm(AuthorizeForm authorizeForm, User user)
         {
             InitializeComponent();
+
             Form = authorizeForm;
             User = user;
+
+            Forms = new Dictionary<string, Func<Form, User, string, Form>>()
+            {
+                { "tsMenuContact", (a, b, c) => { return new ContactForm(a, b, c); } },
+                { "tsMenuAccount", (a, b, c) => { return new AccountForm(a, b, c); } },
+                { "tsMenuProduct", (a, b, c) => { return new ProductForm(a, b, c); } },
+                { "tsMenuInvoice", (a, b, c) => { return new InvoiceForm(a, b, c); } },
+                { "tsMenuSysLookup", (a, b, c) => { return new SysLookupForm(a, b, c); } },
+                { "tsMenuUser", (a, b, c) => { return new AdminForm(a, b, c); } },
+            };
+
+            DeleteMethods = new Dictionary<string, Action<string>>()
+            {
+                { "tsMenuContact", (a) => ContactForm.Delete(a) },
+                { "tsMenuAccount", (a) => AccountForm.Delete(a) },
+                { "tsMenuProduct", (a) => ProductForm.Delete(a) },
+                { "tsMenuInvoice", (a) => InvoiceForm.Delete(a) },
+                { "tsMenuUser", (a) => AdminForm.Delete(a) },
+            };
 
             dgvSection.AutoGenerateColumns = false;
             tsMenuContact_Click(tsMenuContact, null); // Чтобы изначально заполнить грид
@@ -43,73 +69,24 @@ namespace IndividualTask
             Form.Visible = true;
         }
 
-        private void tsMenuContact_Click(object sender, EventArgs e)
-        {
-            menuItemChanged(sender);
-            using (DBEntities db = new DBEntities())
-            {
-                ColumnHelper.ChangeDataGridViewColumnVisible(dgvSection, "InContact");
-                dgvSection.DataSource = db.Contact.Select(x => new {
-                    x.Id,
-                    x.CreatedOn,
-                    x.Name,
-                    City = x.City.Name,
-                    Account = x.Account.FirstOrDefault().Name,
-                    Job = x.Job.Name,
-                    x.Phone,
-                    x.Email
-                }).ToList();
-            }
-        }
-
-        private void tsMenuAccount_Click(object sender, EventArgs e)
-        {
-            menuItemChanged(sender);
-            using (DBEntities db = new DBEntities())
-            {
-                ColumnHelper.ChangeDataGridViewColumnVisible(dgvSection, "InAccount");
-                dgvSection.DataSource = db.Account.Select(x => new {
-                    x.Id,
-                    x.CreatedOn,
-                    x.Name,
-                    Contact = x.Contact.Name
-                }).ToList();
-            }
-        }
-
-        private void tsMenuProduct_Click(object sender, EventArgs e)
-        {
-            menuItemChanged(sender);
-            using (DBEntities db = new DBEntities())
-            {
-                ColumnHelper.ChangeDataGridViewColumnVisible(dgvSection);
-                dgvSection.DataSource = db.Product.ToList();
-            }
-        }
-
-        private void tsMenuInvoice_Click(object sender, EventArgs e)
-        {
-            menuItemChanged(sender);
-            using (DBEntities db = new DBEntities())
-            {
-                ColumnHelper.ChangeDataGridViewColumnVisible(dgvSection, "InInvoice");
-                dgvSection.DataSource = db.Invoice.Select(x => new {
-                    x.Id,
-                    x.CreatedOn,
-                    x.Name,
-                    Account = x.Account.Name,
-                    Contact = x.Contact.Name,
-                    x.Amount,
-                    Owner = x.ContactOwner.Name,
-                    Status = x.InvoiceStatus.Name
-                }).ToList();
-            }
-        }
-
         private void menuItemChanged(object sender)
         {
+            using (DBEntities db = new DBEntities())
+            {
+                TableHelper.UpdateDataGridView(db, sender, dgvSection);
+            }
+
             CurrentMenuItem = sender;
             changeSelectedSectionFont(sender);
+
+            // Запрещаем нажимать на кнопки, если выбран раздел "Справочники"
+            btnAddRecord.Enabled = ((ToolStripMenuItem)sender).Name == "tsMenuSysLookup" ? false : true;
+            btcDeleteRecord.Enabled = ((ToolStripMenuItem)sender).Name == "tsMenuSysLookup" ? false : true;
+        }
+
+        public void UpdateGrid()
+        {
+            menuItemChanged(CurrentMenuItem);
         }
 
         private void changeSelectedSectionFont(object sender)
@@ -120,22 +97,32 @@ namespace IndividualTask
             }
         }
 
-        private void tsMenuLookup_Click(object sender, EventArgs e)
+        private void tsMenuContact_Click(object sender, EventArgs e)
         {
             menuItemChanged(sender);
-            using (DBEntities db = new DBEntities())
-            {
-                ColumnHelper.ChangeDataGridViewColumnVisible(dgvSection, "InSysLookup");
-                dgvSection.DataSource = db.SysLookup.Select(x => new {
-                    x.Id,
-                    x.CreatedOn,
-                    x.Name,
-                    x.DbName
-                }).ToList();
-            }
         }
 
-        private void tsMenuAdministration_Click(object sender, EventArgs e)
+        private void tsMenuAccount_Click(object sender, EventArgs e)
+        {
+            menuItemChanged(sender);
+        }
+
+        private void tsMenuProduct_Click(object sender, EventArgs e)
+        {
+            menuItemChanged(sender);
+        }
+
+        private void tsMenuInvoice_Click(object sender, EventArgs e)
+        {
+            menuItemChanged(sender);
+        }
+
+        private void tsMenuSysLookup_Click(object sender, EventArgs e)
+        {
+            menuItemChanged(sender);
+        }
+
+        private void tsMenuUser_Click(object sender, EventArgs e)
         {
             if (User?.TypeId != UserTypeHelper.AdminTypeId)
             {
@@ -144,46 +131,80 @@ namespace IndividualTask
             }
 
             menuItemChanged(sender);
-            using (DBEntities db = new DBEntities())
-            {
-                ColumnHelper.ChangeDataGridViewColumnVisible(dgvSection, "InAdmin");
-                dgvSection.DataSource = db.User.Select(x => new {
-                    x.Id,
-                    x.CreatedOn,
-                    Name = x.Login,
-                    x.Password,
-                    Contact = x.Contact.Name,
-                    Type = x.UserType.Name
-                }).ToList();
-            }
         }
 
         private void dgvSection_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var rowIndex = dgvSection.SelectedCells[0]?.RowIndex;
+            CurrentRowIndex = dgvSection.SelectedCells[0].RowIndex;
 
-            if (rowIndex == null)
-            {
-                MessageBox.Show("Нажмите дважды по строке, которую хотите отредактировать");
-                return;
-            }
-
-            var id = dgvSection.Rows[(int)rowIndex].Cells[0]?.Value;
+            var id = dgvSection.Rows[(int)CurrentRowIndex].Cells[0]?.Value;
             if (id == null)
             {
                 MessageBox.Show("Id этой записи не найден. Обратитесь к администратору");
                 return;
             }
 
-            if (((ToolStripMenuItem)CurrentMenuItem)?.Name == "tsMenuLookup")
+            OpenForm(id.ToString());
+        }
+
+        private void OpenForm(string id = null)
+        {
+            try
             {
-                var sysLookupForm = new SysLookupForm(this, User, id);
-                sysLookupForm.ShowDialog();
+                var currentSectionName = ((ToolStripMenuItem)CurrentMenuItem)?.Name;
+                var form = Forms[currentSectionName]?.Invoke(this, User, id);
+                form.ShowDialog();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Form is developing...");
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnAddRecord_Click(object sender, EventArgs e)
+        {
+            OpenForm();
+        }
+
+        private void btnEditRecord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = dgvSection.Rows[(int)CurrentRowIndex].Cells[0].Value.ToString();
+                OpenForm(id);
+            }
+            catch (ArgumentOutOfRangeException iEx)
+            {
+                MessageBox.Show("Выберите запись для редактирования");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btcDeleteRecord_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы уверенны, что хотите удалить запись?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    var tsMenuName = ((ToolStripMenuItem)CurrentMenuItem)?.Name;
+                    var id = dgvSection.Rows[(int)CurrentRowIndex].Cells[0].Value.ToString();
+
+                    DeleteMethods[tsMenuName]?.Invoke(id);
+                    UpdateGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void dgvSection_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CurrentRowIndex = dgvSection.SelectedCells[0].RowIndex;
         }
     }
 }

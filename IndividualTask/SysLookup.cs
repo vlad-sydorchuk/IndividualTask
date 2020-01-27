@@ -14,10 +14,6 @@ namespace IndividualTask
     
     public partial class SysLookup
     {
-        public System.Guid Id { get; set; }
-        public Nullable<System.DateTime> CreatedOn { get; set; }
-        public Nullable<System.DateTime> ModifiedOn { get; set; }
-        public string Name { get; set; }
         public string DbName { get; set; }
     }
 }
